@@ -18,14 +18,16 @@
                 <label for="caption" class="form-label">Description</label>
                 <textarea class="form-control" id="description" name="description"></textarea>
               </div>
-              <div class="mb-3">
-                <label for="country" class="form-label">Country</label>
-                <input type="text" class="form-control" id="country" name="country"></textarea>
-              </div>
-              <!-- Make this a dropdown with all countries populated -->
-              <div class="mb-3">
-                <label for="city" class="form-label">City</label>
-                <input type="text" class="form-control" id="city" name="city">
+              <div class="row">
+                <!-- Make this a dropdown with all countries populated -->
+                <div class="col mb-3">
+                  <label for="country" class="form-label">Country</label>
+                  <input type="text" class="form-control" id="country" name="country">
+                </div>
+                <div class="col mb-3">
+                  <label for="city" class="form-label">City</label>
+                  <input type="text" class="form-control" id="city" name="city">
+                </div>
               </div>
               <div class="mb-3">
                 <label for="petFriendly" class="form-label">Pet Friendly?</label>
@@ -34,13 +36,15 @@
                   <option value="Not Pet-Friendly">Not Pet Friendly</option>
                 </select>
               </div>
-              <div class="mb-3">
-                <label for="startDate" class="form-label">Start Date</label>
-                <input type="date" class="form-control" id="startDate" name="startDate">
-              </div>
-              <div class="mb-3">
-                <label for="endDate" class="form-label">End Date</label>
-                <input type="date" class="form-control" id="endDate" name="endDate">
+              <div class="row">
+                <div class="col mb-3">
+                  <label for="startDate" class="form-label">Start Date</label>
+                  <input type="date" class="form-control" id="startDate" name="startDate">
+                </div>
+                <div class="col mb-3">
+                  <label for="endDate" class="form-label">End Date</label>
+                  <input type="date" class="form-control" id="endDate" name="endDate">
+                </div>
               </div>
               <div class="mb-3">
                 <label for="imgUpload" class="form-label">Image</label>
@@ -52,16 +56,22 @@
       </div>
       <div class="col-6">
         <h1>Your Listings</h1>
-        <ul class="row list-unstyled">
-        <% for(var i=0; i<posts.length; i++) {%>
-          <li class="col-6 justify-content-between mt-5">
-            <h2><%= posts[i].title %></h2>
-            <a href="/post/<%= posts[i]._id%>">
-              <img class="img-fluid" src="<%= posts[i].image%>">
-            </a>
-          </li>
-        <% } %>
-        </ul>
+        <div class="container">
+          <% for(var i=0; i<posts.length; i++) {%>
+            <div class="card mb-3" style="width: 18rem;">
+              <a href="/post/<%= posts[i]._id%>" class="card-link">
+                <img src="<%= posts[i].image%>" class="card-img-top" alt="...">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title"><%= posts[i].title%></h5>
+                <p class="card-text"><%= posts[i].description%></p>
+              </div>
+              <div class="card-body text-center">
+                <a href="/post/<%= posts[i]._id%>" class="card-link btn btn-primary">View Post</a>
+              </div>
+            </div>
+          <% } %>
+        </div>
       </div>  
     </div>
   </div>

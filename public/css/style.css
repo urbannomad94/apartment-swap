@@ -1,7 +1,7 @@
-html, body {
+body {
     position: relative;
     min-height: 100vh;
-    padding-bottom: 56px; /* Should be equal to the height of your footer */
+    padding-bottom: 56px;
     font-family: 'Syne', sans-serif;
 }
 
@@ -9,4 +9,5 @@ footer {
   width: 100%;
   position: absolute;
   bottom: 0px;
+  height: 56px;
 }

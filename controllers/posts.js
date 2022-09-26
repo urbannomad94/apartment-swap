@@ -51,7 +51,6 @@ module.exports = {
         petFriendly: req.body.petFriendly,
       });
       console.log('Post has been added!');
-      console.log(req.body);
       res.redirect('/profile');
     } catch (err) {
       console.log(err);
