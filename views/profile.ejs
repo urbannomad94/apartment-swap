@@ -6,6 +6,13 @@
               <h1>Account Information</h1>
               <p><strong>User Name</strong>: <%= user.userName %></p>
               <p><strong>Email</strong>: <%= user.email %></p>
+              <form
+              action="/user/deleteUser/<%= user.id %>?_method=DELETE"
+              method="POST"
+              >
+                <button class="btn btn-danger fa fa-trash
+                " type="submit">Delete Account</button>
+              </form>
           </div>
           <div class="mt-5">
             <h2>Add a post</h2>
