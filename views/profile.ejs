@@ -6,6 +6,7 @@
               <h1>Account Information</h1>
               <p><strong>User Name</strong>: <%= user.userName %></p>
               <p><strong>Email</strong>: <%= user.email %></p>
+              <p><strong>User Since</strong>: <%= user.dateCreated%></p>
               <form
               action="/user/deleteUser/<%= user.id %>?_method=DELETE"
               method="POST"

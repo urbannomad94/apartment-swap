@@ -49,6 +49,8 @@ module.exports = {
         city: req.body.city,
         user: req.user.id,
         petFriendly: req.body.petFriendly,
+        startDate: req.body.startDate,
+        endDate: req.body.endDate,
       });
       console.log('Post has been added!');
       res.redirect('/profile');
