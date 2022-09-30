@@ -12,7 +12,7 @@
               method="POST"
               >
                 <button class="btn btn-danger fa fa-trash
-                " type="submit">Delete Account</button>
+                " type="submit">  Delete Account</button>
               </form>
           </div>
           <div class="mt-5">
@@ -65,14 +65,14 @@
       <div class="col-6">
         <h1>Your Listings</h1>
         <div class="container">
-          <% for(var i=0; i<posts.length; i++) {%>
+          <% for(let i=0; i < posts.length; i++) {%>
             <div class="card mb-3" style="width: 18rem;">
               <a href="/post/<%= posts[i]._id%>" class="card-link">
                 <img src="<%= posts[i].image%>" class="card-img-top" alt="...">
               </a>
               <div class="card-body">
-                <h5 class="card-title"><%= posts[i].title%></h5>
-                <p class="card-text"><%= posts[i].description%></p>
+                <h5 class="card-title fw-bold"><%= posts[i].title%></h5>
+                <p class="card-text"><%= posts[i].city%>, <%= posts[i].country%></p>
               </div>
               <div class="card-body text-center">
                 <a href="/post/<%= posts[i]._id%>" class="card-link btn btn-primary">View Post</a>
