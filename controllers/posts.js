@@ -1,6 +1,7 @@
 const cloudinary = require('../middleware/cloudinary');
 const Post = require('../models/Post');
 const Comment = require('../models/Comment');
+const User = require('../models/User');
 
 module.exports = {
   getProfile: async (req, res) => {
@@ -58,16 +59,46 @@ module.exports = {
       console.log(err);
     }
   },
-  likePost: async (req, res) => {
+  // likePost: async (req, res) => {
+  //   try {
+  //     await Post.findOneAndUpdate(
+  //       { _id: req.params.id },
+  //       {
+  //         $inc: { likes: 1 },
+  //       }
+  //     );
+  //     console.log('Likes +1');
+  //     res.redirect(`/post/${req.params.id}`);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // },
+  favoritePost: async (req, res) => {
     try {
-      await Post.findOneAndUpdate(
-        { _id: req.params.id },
+      const post = await Post.findById(req.params.id);
+      await User.findOneAndUpdate(
+        { _id: req.user.id },
         {
-          $inc: { likes: 1 },
+          $push: { favorites: post },
         }
       );
-      console.log('Likes +1');
+      console.log('Post added to Favorites');
       res.redirect(`/post/${req.params.id}`);
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  unfavoritePost: async (req, res) => {
+    try {
+      const post = await Post.findById(req.params.id);
+      await User.findOneAndUpdate(
+        { _id: req.user.id },
+        {
+          $pull: { favorites: post },
+        }
+      );
+      console.log('Post removed to Favorites');
+      res.redirect(`/profile`);
     } catch (err) {
       console.log(err);
     }

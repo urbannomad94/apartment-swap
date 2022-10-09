@@ -6,6 +6,7 @@ const UserSchema = new mongoose.Schema({
   email: { type: String, unique: true },
   contactInfo: { type: Number },
   password: String,
+  favorites: { type: Array },
   dateCreated: {
     type: Date,
     default: Date.now,

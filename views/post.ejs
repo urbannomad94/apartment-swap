@@ -3,23 +3,30 @@
   <div class="row justify-content-center mt-5">
     <div class="col-6">
       <h2><%= post.title %></h2>
-      <img class="img-fluid" src="<%= post.image%>" />
+      <img class="img-fluid mb-3" width="100%" src="<%= post.image%>" />
       <div class="row justify-content-between">
         <form
           class="col-1"
-          action="/post/likePost/<%= post.id %>?_method=PUT"
+          action="/post/favoritePost/<%= post.id %>?_method=PUT"
           method="POST"
         >
-          <button class="btn btn-primary fa fa-heart" type="submit"></button>
+          <button class="btn btn-primary fa fa-heart" type="submit"> Add to Favorites</button>
         </form>
-        <h3 class="col-3">Likes: <%= post.likes %></h3>
+        <form
+          class="col-1"
+          action="/post/unfavoritePost/<%= post.id %>?_method=PUT"
+          method="POST"
+        >
+          <button class="btn btn-danger fa fa-heart" type="submit"> Remove from Favorites</button>
+        </form>
+        <!-- <h3 class="col-4">Likes: <%= post.likes %></h3> -->
         <%if(post.user == user.id){ %>
         <form
           action="/post/deletePost/<%= post.id %>?_method=DELETE"
           method="POST"
-          class="col-3"
+          class="col-1"
         >
-          <button class="btn btn-primary fa fa-trash" type="submit"></button>
+          <button class="btn btn-danger fa fa-trash" type="submit"> Delete Post</button>
         </form>
         <%}%>
       </div>
@@ -29,7 +36,7 @@
       <p>Posting listed: <%= post.createdAt %></p>
       <p>Location: <%= post.country %>, <%= post.city %></p>
       <p><%= post.petFriendly %></p>
-      <p>Available from <%= post.startDate %> to <%= post.endDate %></p>
+      <p>Available from <%= post.startDate.toDateString() %> to <%= post.endDate.toDateString() %></p>
     </div>
     <div class="mt-5">
       <h2>Add a comment</h2>
