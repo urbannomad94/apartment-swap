@@ -3,6 +3,11 @@ body {
     min-height: 100vh;
     padding-bottom: 56px;
     font-family: 'Syne', sans-serif;
+    background-color: rgb(202, 240, 248)
+}
+
+input, textarea, button {
+  /* font-family: inherit !important; */
 }
 
 footer {
@@ -10,4 +15,20 @@ footer {
   position: absolute;
   bottom: 0px;
   height: 56px;
+}
+
+.navbar {
+  background-color: rgb(66, 178, 239) !important;
+}
+
+.card {
+  background-color: rgb(159, 228, 240);
+}
+
+.nav-item:hover {
+  transform: scale(1.2);
+}
+
+.nav-item:active {
+  transform: scale(0.9);
 }

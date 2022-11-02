@@ -1,20 +1,18 @@
 <%- include('partials/header-logged-in') -%>
-<div class="container mb-5">
-  <div class="row mt-5">
+<div class="container-fluid mb-5">
+  <div class="row mt-3 ps-3">
       <div class="col-6">
-          <div>
-              <h1>Account Information</h1>
-              <p><strong>User Name</strong>: <%= user.userName %></p>
-              <p><strong>Email</strong>: <%= user.email %></p>
-              <p><strong>User Since</strong>: <%= user.dateCreated.toDateString()%></p>
-              <form
-              action="/user/deleteUser/<%= user.id %>?_method=DELETE"
-              method="POST"
-              >
-                <button class="btn btn-danger fa fa-trash
-                " type="submit">  Delete Account</button>
-              </form>
-          </div>
+            <h1>Account Information</h1>
+            <p><strong>User Name</strong>: <%= user.userName %></p>
+            <p><strong>Email</strong>: <%= user.email %></p>
+            <p><strong>User Since</strong>: <%= user.dateCreated.toDateString()%></p>
+            <form
+            action="/user/deleteUser/<%= user.id %>?_method=DELETE"
+            method="POST"
+            >
+              <button class="btn btn-danger text-white fa fa-trash
+              " type="submit">  Delete Account</button>
+            </form>
           <div class="mt-5">
             <h2>Add a post</h2>
             <form action="/post/createPost" enctype="multipart/form-data" method="POST">
@@ -62,11 +60,11 @@
             </form>
           </div>
       </div>
-      <div class="col-6">
-        <h1>Your Listings</h1>
-        <div class="container row justify-content-between">
+      <div class="col-6 container-fluid">
+        <h1 class="ps-4">Your Listings</h1>
+        <div class="row justify-content-around g-5">
           <% for(let i=0; i < posts.length; i++) {%>
-            <div class="card col-6 mb-3" style="width: 18rem;">
+            <div class="card col-6 py-3" style="width: 18rem;">
               <a href="/post/<%= posts[i]._id%>" class="card-link">
                 <img src="<%= posts[i].image%>" class="card-img-top" alt="...">
               </a>

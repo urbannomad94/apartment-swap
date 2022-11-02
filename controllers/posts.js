@@ -26,10 +26,12 @@ module.exports = {
       const comments = await Comment.find({ post: req.params.id })
         .sort({ createdAt: 'desc' })
         .lean();
+      const poster = await User.find({ _id: post.user });
       res.render('post.ejs', {
         post: post,
         user: req.user,
         comments: comments,
+        poster: poster[0].email,
       });
     } catch (err) {
       console.log(err);
@@ -98,7 +100,7 @@ module.exports = {
         }
       );
       console.log('Post removed to Favorites');
-      res.redirect(`/profile`);
+      res.redirect(`/post/${req.params.id}`);
     } catch (err) {
       console.log(err);
     }

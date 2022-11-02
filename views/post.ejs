@@ -1,67 +1,86 @@
 <%- include('partials/header-logged-in') -%>
-<div class="container">
-  <div class="row justify-content-center mt-5">
-    <div class="col-6">
+<div class="container-fluid mt-3">
+  <div class="row justify-content-start align-items-center">
+    <div class="col-7 mb-3">
       <h2><%= post.title %></h2>
       <img class="img-fluid mb-3" width="100%" src="<%= post.image%>" />
       <div class="row justify-content-between">
+        <!-- Remove from favorites should only show is user has favoritted -->
+        <% let inFavorites = false %>
+        <% for(let i=0; i < user.favorites.length; i++) {%>
+          <%if(user.favorites[i].title == post.title){ %>
+            <% inFavorites = true %>
+          <% } %>
+        <% } %>
+        <% if(inFavorites == true) {%>
+      
         <form
-          class="col-1"
-          action="/post/favoritePost/<%= post.id %>?_method=PUT"
-          method="POST"
-        >
-          <button class="btn btn-primary fa fa-heart" type="submit"> Add to Favorites</button>
-        </form>
-        <form
-          class="col-1"
+          class="col"
           action="/post/unfavoritePost/<%= post.id %>?_method=PUT"
           method="POST"
         >
-          <button class="btn btn-danger fa fa-heart" type="submit"> Remove from Favorites</button>
+          <button class="btn btn-danger fa fa-heart-broken" type="submit"> Unfavorite</button>
         </form>
-        <!-- <h3 class="col-4">Likes: <%= post.likes %></h3> -->
+        <% } %>
+
+        <% if(inFavorites == false) {%>
+        <form
+          class="col"
+          action="/post/favoritePost/<%= post.id %>?_method=PUT"
+          method="POST"
+        >
+          <button class="btn btn-primary fa fa-heart" type="submit"> Favorite</button>
+        </form>
+        <% } %>
+        
         <%if(post.user == user.id){ %>
         <form
           action="/post/deletePost/<%= post.id %>?_method=DELETE"
           method="POST"
-          class="col-1"
+          class="col text-end"
         >
-          <button class="btn btn-danger fa fa-trash" type="submit"> Delete Post</button>
+          <button class="btn btn-danger fa fa-trash" type="submit"> Delete</button>
         </form>
         <%}%>
       </div>
+      <div class="container mt-3"> 
+        <h2>Add a comment</h2>
+        <form action="/comments/createComment/<%=post._id%>" method="POST">
+          <div class="mb-3">
+              <label for="title" class="form-label">Comment</label>
+              <input type="text" class="form-control" id="comment" name="comment">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <ul class="list-group col-6">
+        <% for(let i=0; i<comments.length; i++) {%>
+          <li class="d-flex list-group-item my-3 justify-content-between">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold"><%= comments[i].poster %></div>
+                <%= comments[i].comment %>
+            </div>
+            <form
+            action="/comments/deleteComment/<%= post.id %>?_method=DELETE"
+            method="POST"
+            class="col-3 text-end"
+            >
+              <button class="btn btn-danger fa fa-trash" type="submit"></button>
+            </form>
+          </li>
+        <% } %>
+      </ul>
     </div>
-    <div class="col-3 mt-5">
+    <div class="col-5 align-self-start">
+      <h2>Details</h2>
       <p>Description: <%= post.description %></p>
-      <p>Posting listed: <%= post.createdAt %></p>
+      <p>Posting listed: <%= post.createdAt.toDateString() %></p>
       <p>Location: <%= post.country %>, <%= post.city %></p>
       <p><%= post.petFriendly %></p>
       <p>Available from <%= post.startDate.toDateString() %> to <%= post.endDate.toDateString() %></p>
+      <p>Contact host at: <%= poster %></p>
     </div>
-    <div class="mt-5">
-      <h2>Add a comment</h2>
-      <form action="/comments/createComment/<%=post._id%>" method="POST">
-        <div class="mb-3">
-            <label for="title" class="form-label">Comment</label>
-            <input type="text" class="form-control" id="comment" name="comment">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </div>
-    <ul>
-      <% for(let i=0; i<comments.length; i++) {%>
-        <li class="col-6 justify-content-between mt-5">
-          <%= comments[i].comment%>
-          <form
-          action="/comments/deleteComment/<%= post.id %>?_method=DELETE"
-          method="POST"
-          class="col-3"
-        >
-          <button class="btn btn-danger fa fa-trash" type="submit"></button>
-        </form>
-        </li>
-      <% } %>
-    </ul>
+
   </div>
 </div>
 
