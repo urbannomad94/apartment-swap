@@ -32,3 +32,8 @@ footer {
 .nav-item:active {
   transform: scale(0.9);
 }
+
+.modal-header {
+  background-color: rgb(66, 178, 239);
+  color: white;
+}
