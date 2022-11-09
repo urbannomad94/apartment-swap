@@ -12,7 +12,7 @@ I was inspired to create this website from my experience as an international sch
 
 **Tech used:** EJS, CSS, JavaScript, Node, Express, MongoDB, Mongoose, Bootstrap
 
-Here's where you can go to town on how you actually built this thing. Write as much as you can here, it's totally fine if it's not too much just make sure you write _something_. If you don't have too much experience on your resume working on the front end that's totally fine. This is where you can really show off your passion and make up for that ten fold.
+I utilized the MVC architecture in developing this platform. NodeJS with Express was used to create the backend. I used EJS as my templating language for now (I plan on updating my 'Views' using React in the future) and used the Bootstrap library to style the website. The database I used was MongoDB with the help of Mongoose to create schemas for the various collections.
 
 ## Optimizations
 
@@ -21,6 +21,7 @@ There are several features I plan to incorporate into the website in the future.
 *Including more amenities for the host to list about their posting (e.g. parking, A/C, washing machine, gated yard, streaming services, etc.)
 *Changing the country text input to a pre-filled drop-down list
 *Allow users to post multiple photos of their house/apartment
+\*Using JSX (React) instead of EJS for the views
 \*Monetize the website by making it a subscription service once the user base grows
 
 ## Lessons Learned:
