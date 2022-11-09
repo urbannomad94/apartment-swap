@@ -147,12 +147,13 @@
                 <!-- Make this a dropdown with all countries populated -->
                 <div class="col mb-3">
                   <label for="country" class="form-label">Country</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="country"
-                    name="country"
-                  />
+                  <select name="country" id="country">
+                    <% for(let i=0; i < countries.length; i++) {%>
+                    <option value="<%= countries[i] %>">
+                      <%= countries[i] %>
+                    </option>
+                    <% } %>
+                  </select>
                 </div>
                 <div class="col mb-3">
                   <label for="city" class="form-label">City</label>
