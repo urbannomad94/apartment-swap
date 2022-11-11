@@ -30,4 +30,4 @@ Creating the TTN platform has taught me A LOT and helped to hone my skills as a 
 
 ## Portfolio:
 
-**View my other work here:** https://github.com/alecortega/palettable
+**View my other work here:** https://github.com/urbannomad94
