@@ -2,7 +2,7 @@
 
 Traveling Teachers Network is a platform that allows international school teachers to connect and organize house swaps during the holiday seasons.
 
-I was inspired to create this website from my experience as an international school teacher. There are several times of year (October break, Winter break, Spring break, Summer break, etc.) where teachers all of the World are looking to travel and will often reach out to their network of other international school teachers to find someone who has an empty house/apartment they can stay in. This process can often be frustrating and awkward, but TTN solves that!
+I was inspired to create this website from my experience as an international school teacher. There are several times of year (October break, Winter break, Spring break, Summer break, etc.) when teachers all over the World are looking to travel and will often reach out to their network of other international school teachers to find someone who has an empty house/apartment they can stay in. This process can often be frustrating and awkward, but TTN solves that!
 
 **Link to project:** https://travellingteachersnetwork.cyclic.app/
 
