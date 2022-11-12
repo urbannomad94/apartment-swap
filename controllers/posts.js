@@ -37,6 +37,7 @@ module.exports = {
         user: req.user,
         comments: comments,
         poster: poster[0].email,
+        countries: countries,
       });
     } catch (err) {
       console.log(err);
