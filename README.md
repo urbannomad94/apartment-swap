@@ -6,7 +6,7 @@ I was inspired to create this website from my experience as an international sch
 
 **Link to project:** http://recruiters-love-seeing-live-demos.com/
 
-![alt tag](http://placecorgi.com/1200/650)
+![alt tag](https://giphy.com/gifs/zBN2g3UXUs2IBH0DGx/fullscreen)
 
 ## How It's Made:
 
